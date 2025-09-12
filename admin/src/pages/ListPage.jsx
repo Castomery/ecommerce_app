@@ -11,7 +11,7 @@ const ListPage = () => {
 
     const fetchProductsList = async () => {
         try {
-            const res = await axios.get(BACKEND_URL+"/api/product/list", {headers:{token}})
+            const res = await axios.get(BACKEND_URL+"/api/product/list")
 
             if(res.status === 201){
                 setList(res.data.products);

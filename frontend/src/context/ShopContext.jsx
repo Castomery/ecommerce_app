@@ -1,7 +1,8 @@
 /* eslint-disable no-case-declarations */
-import { createContext, useReducer } from "react";
-import { products } from '../assets/frontend_assets/assets'
+import { createContext, useEffect, useReducer, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const ShopContext = createContext();
@@ -78,7 +79,10 @@ const ShopContextProvider = (props) => {
 
     const currency = '$';
     const delivery_fee = 10;
+    const backendUrl = import.meta.env.VITE_BACKEND_URL;
     const [state, dispatch] = useReducer(reducer, initialState);
+    const [products, setProducts] = useState([]);
+    const [token, setToken] = useState("");
     const navigate = useNavigate();
 
     const getCartCount = () => {
@@ -118,8 +122,23 @@ const ShopContextProvider = (props) => {
         return totalAmount;
     }
 
+    const fetchProducts = async () => {
+        try {
+            
+            const res = await axios.get(backendUrl+"/api/product/list");
+            console.log(res.data);
+
+        } catch (error) {
+            
+        }
+    }
+
+    useEffect(() => {
+        fetchProducts();
+    },[])
+
     const value = {
-        products, currency, delivery_fee, state, dispatch, getCartCount, getCartAmount, navigate
+        products, currency, delivery_fee, state, dispatch, getCartCount, getCartAmount, navigate, backendUrl, token ,setToken
     }
 
     return (

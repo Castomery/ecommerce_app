@@ -1,24 +1,43 @@
+import logo from './logo.png';
+import hero_img from './hero_img.png';
+import cart_icon from './cart_icon.png';
+import dropdown_icon from './dropdown_icon.png';
+import exchange_icon from './exchange_icon.png';
+import profile_icon from './profile_icon.png';
+import quality_icon from './quality_icon.png';
+import search_icon from './search_icon.png';
+import star_dull_icon from './star_dull_icon.png';
+import star_icon from './star_icon.png';
+import bin_icon from './bin_icon.png';
+import support_img from './support_img.png';
+import menu_icon from './menu_icon.png';
+import about_img from './about_img.png';
+import contact_img from './contact_img.png';
+import razorpay_logo from './razorpay_logo.png';
+import stripe_logo from './stripe_logo.png';
+import cross_icon from './cross_icon.png';
 
 export const assets = {
-    logo: "./assets/logo.png",
-    hero_img: "./assets/hero_img.png",
-    cart_icon: "./assets/cart_icon.png",
-    dropdown_icon: "./assets/dropdown_icon.png",
-    exchange_icon: "./assets/exchange_icon.png",
-    profile_icon: "./assets/profile_icon.png",
-    quality_icon: "./assets/quality_icon.png",
-    search_icon: "./assets/search_icon.png",
-    star_dull_icon: "./assets/star_dull_icon.png",
-    star_icon: "./assets/star_icon.png",
-    bin_icon: "./assets/bin_icon.png",
-    support_img: "./assets/support_img.png",
-    menu_icon: "./assets/menu_icon.png",
-    about_img: "./assets/about_img.png",
-    contact_img: "./assets/contact_img.png",
-    razorpay_logo: "./assets/razorpay_logo.png",
-    stripe_logo: "./assets/stripe_logo.png",
-    cross_icon: "./assets/cross_icon.png",
-}
+    logo,
+    hero_img,
+    cart_icon,
+    dropdown_icon,
+    exchange_icon,
+    profile_icon,
+    quality_icon,
+    search_icon,
+    star_dull_icon,
+    star_icon,
+    bin_icon,
+    support_img,
+    menu_icon,
+    about_img,
+    contact_img,
+    razorpay_logo,
+    stripe_logo,
+    cross_icon
+};
+
 
 export const products = [
     {
@@ -38,7 +57,7 @@ export const products = [
         name: "Men Round Neck Pure Cotton T-shirt",
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 200,
-        image: ["./p_img2_1.png","./p_img2_2.png","./p_img2_3.png","./p_img2_4.png"],
+        image: ["./p_img2_1.png", "./p_img2_2.png", "./p_img2_3.png", "./p_img2_4.png"],
         category: "Men",
         subCategory: "Topwear",
         sizes: ["M", "L", "XL"],
@@ -230,7 +249,7 @@ export const products = [
         name: "Boy Round Neck Pure Cotton T-shirt",
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 180,
-        image: ['./p_img18,png'],
+        image: ['./p_img18.png'],
         category: "Kids",
         subCategory: "Topwear",
         sizes: ["S", "M", "L", "XL"],
@@ -290,7 +309,7 @@ export const products = [
         name: "Boy Round Neck Pure Cotton T-shirt",
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 180,
-        image: ['./p_img23,png'],
+        image: ['./p_img23.png'],
         category: "Kids",
         subCategory: "Topwear",
         sizes: ["S", "M", "L", "XL"],
