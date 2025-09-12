@@ -4,6 +4,7 @@ import productModel from "../models/product.model.js";
 const addProduct = async (req, res) => {
     try {
 
+        
         const { name, description, price, category, subCategory, sizes, bestseller } = req.body;
 
         if (!name || !description || !price || !category) {
@@ -44,6 +45,8 @@ const addProduct = async (req, res) => {
             image: validImages,
             date: Date.now(),
         }
+
+        
 
         const product = new productModel(productData);
 
