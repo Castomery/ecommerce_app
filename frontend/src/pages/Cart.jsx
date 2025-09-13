@@ -6,29 +6,31 @@ import CartTotal from '../components/CartTotal';
 
 const Cart = () => {
 
-  const { products, currency, state, dispatch, navigate } = useContext(ShopContext);
+  const { products, currency, state, navigate, updateCartHandler, removeFromCartHandler } = useContext(ShopContext);
 
   const [cartData, setCartData] = useState([]);
 
+  console.log(cartData);
+
   useEffect(() => {
 
-    const tempData = [];
-    for (const items in state.cartItems) {
-      for (const item in state.cartItems[items]) {
-        if (state.cartItems[items][item] > 0) {
-          tempData.push({
-            _id: items,
-            size: item,
-            quantity: state.cartItems[items][item],
-          })
+    if (products.length > 0) {
+      const tempData = [];
+      for (const items in state.cartItems) {
+        for (const item in state.cartItems[items]) {
+          if (state.cartItems[items][item] > 0) {
+            tempData.push({
+              _id: items,
+              size: item,
+              quantity: state.cartItems[items][item],
+            })
+          }
         }
       }
+      setCartData(tempData);
     }
-    setCartData(tempData);
 
-  }, [state.cartItems])
-
-  console.log(state.cartItems);
+  }, [state.cartItems, products])
 
   return (
     <div className='border-t pt-14'>
@@ -52,8 +54,8 @@ const Cart = () => {
                   </div>
                 </div>
               </div>
-              <input onChange={(e) => e.target.value === "" || e.target.value === "0" ? null : dispatch({ type: "UPDATE_CART", payload: { id: productData._id, size: product.size, quantity: Number(e.target.value) } })} type="number" min={1} value={product.quantity} className='border max-w-10 sm:max-w-20 px-1 sm:px-2 py-1' />
-              <img onClick={() => dispatch({ type: "REMOVE_FROM_CART", payload: { id: productData._id, size: product.size } })} src={assets.bin_icon} alt="bin" className='w-4 mr-4 sm:w-5 cursor-pointer' />
+              <input onChange={(e) => e.target.value === "" || e.target.value === "0" ? null : updateCartHandler(productData._id, product.size, Number(e.target.value))} type="number" min={1} value={product.quantity} className='border max-w-10 sm:max-w-20 px-1 sm:px-2 py-1' />
+              <img onClick={() => removeFromCartHandler(productData._id, product.size)} src={assets.bin_icon} alt="bin" className='w-4 mr-4 sm:w-5 cursor-pointer' />
             </div>
           )
         })
@@ -63,7 +65,7 @@ const Cart = () => {
         <div className='w-full sm:w-[450px]'>
           <CartTotal />
           <div className='w-full text-end'>
-            <button onClick={() => navigate('/place-order')} className='bg-black text-white text-sm my-8 px-8 py-3 cursor-pointer' disabled={Object.keys(state.cartItems).length===0}>PROCEED TO CHECKOUT</button>
+            <button onClick={() => navigate('/place-order')} className='bg-black text-white text-sm my-8 px-8 py-3 cursor-pointer' disabled={Object.keys(state.cartItems).length === 0}>PROCEED TO CHECKOUT</button>
           </div>
         </div>
       </div>

@@ -8,7 +8,7 @@ import { toast } from 'react-toastify';
 const Product = () => {
 
   const { productId } = useParams();
-  const { products, currency, dispatch } = useContext(ShopContext);
+  const { products, currency, addToCartHandler } = useContext(ShopContext);
   const [productData, setProductData] = useState();
   const [image, setImage] = useState('');
   const [size, setSize] = useState('');
@@ -29,12 +29,12 @@ const Product = () => {
       toast.error("Select product size");
       return;
     }
-    dispatch({ type: "ADD_TO_CART", payload: { id: id, size: size }});
+    addToCartHandler(id, size);
   }
 
   useEffect(() => {
-    fetchProductData();
-  }, [])
+     fetchProductData();
+  }, [products])
 
   return productData ? (
     <div className='border-t-2 pt-10 transition-opacity ease-in duration-500 opacity-100'>
