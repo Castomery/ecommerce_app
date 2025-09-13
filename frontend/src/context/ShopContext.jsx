@@ -144,6 +144,7 @@ const ShopContextProvider = (props) => {
     }
 
     const fetchUserCart = async (token) => {
+        if(!token) return null;
         try {
             const res = await axios.get(backendUrl + '/api/cart/get', { headers: { token } });
 
@@ -248,7 +249,7 @@ const ShopContextProvider = (props) => {
     useEffect(() => {
         fetchProducts();
         fetchUserCart(token);
-    }, [])
+    }, [token])
 
     const value = {
         products,
