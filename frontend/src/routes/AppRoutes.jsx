@@ -7,6 +7,7 @@ import Product from "../pages/Product";
 import Contact from "../pages/Contact";
 import About from "../pages/About";
 import Collection from "../pages/Collection";
+import Verify from "../pages/Verify";
 
 const routes = [
   { path: "/", element: <Home /> },
@@ -18,6 +19,7 @@ const routes = [
   { path: "/login", element: <Login /> },
   { path: "/place-order", element: <PlaceOrder /> },
   { path: "/orders", element: <Orders /> },
+  { path: "/verify", element: <Verify /> },
 ];
 
 export default routes;
